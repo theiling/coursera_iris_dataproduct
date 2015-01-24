@@ -75,6 +75,14 @@
 
 <p>After pressing the submit button the application will predict the corresponding iris species  and return the results and the respective image in the bottom of the main panel.</p>
 
+<p>An example of the original iris data is shown below. </p>
+
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+</code></pre>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -87,6 +95,24 @@
     <p>This application was built with Shiny (<a href="http://shiny.rstudio.com">http://shiny.rstudio.com</a>).</p>
 
 <p>As machine learning method Random forest was selected. (See <a href="http://en.wikipedia.org/wiki/Random_forest">http://en.wikipedia.org/wiki/Random_forest</a>)</p>
+
+<p>A summary of the confusion matrix table and accuracy is calculated below</p>
+
+<pre><code>## randomForest 4.6-10
+## Type rfNews() to see new features/changes/bug fixes.
+## Loading required package: lattice
+## Loading required package: ggplot2
+</code></pre>
+
+<pre><code>##             Reference
+## Prediction   setosa versicolor virginica
+##   setosa         20          0         0
+##   versicolor      0         15         1
+##   virginica       0          2        12
+</code></pre>
+
+<pre><code>## [1] 0.94
+</code></pre>
 
 <p>Source of the pictures: <a href="http://en.wikipedia.org/wiki/Iris_flower_data_set">http://en.wikipedia.org/wiki/Iris_flower_data_set</a></p>
 

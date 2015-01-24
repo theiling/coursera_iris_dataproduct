@@ -24,8 +24,12 @@ In the left side of the application the four features can be selected.
 After pressing the submit button the application will predict the corresponding iris species  and return the results and the respective image in the bottom of the main panel.
 
 An example of the original iris data is shown below. 
-```{r, echo=FALSE}
-head(iris,3)
+
+```
+  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
 ```
 
 Shiny application and used machine learning method
@@ -36,25 +40,17 @@ This application was built with Shiny (http://shiny.rstudio.com).
 As machine learning method Random forest was selected. (See http://en.wikipedia.org/wiki/Random_forest)
 
 A summary of the confusion matrix table and accuracy is calculated below
-```{r, echo=FALSE}
-## Start machine learning
-set.seed(1234)
-data(iris)
-m <- dim(iris)[1]
-val <- sample(1:m, size = round(m/3), replace = FALSE,
-              prob = rep(1/m, m))
-iris.learn <- iris[-val,]
-iris.valid <- iris[val,]
 
-library(randomForest)
-library(caret)
-rf <- randomForest(Species ~. , data=iris.learn, method="class")
-prediction.rf <- predict(rf, iris.valid, type = "class")
-cmatrix.rf <- confusionMatrix(prediction.rf, iris.valid$Species)
-accuracy.rf <- round(as.numeric(cmatrix.rf$overall[1]),4)
-cmatrix.rf$table
-accuracy.rf
+```
+            Reference
+Prediction   setosa versicolor virginica
+  setosa         20          0         0
+  versicolor      0         15         1
+  virginica       0          2        12
+```
 
+```
+[1] 0.94
 ```
 
 Sources and Coursera
